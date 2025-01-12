@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      birpc:
+        specifier: ^2.0.19
+        version: 2.0.19
       react:
         specifier: ^19.0.0
         version: 19.0.0
@@ -411,6 +414,9 @@ packages:
   binary-extensions@2.3.0:
     resolution: {integrity: sha512-Ceh+7ox5qe7LJuLHoY0feh3pHuUDHAcRUeyL2VYghZwfpkNIy/+8Ocg0a3UuSoYzavmylwuLWQOf3hl0jjMMIw==}
     engines: {node: '>=8'}
+
+  birpc@2.0.19:
+    resolution: {integrity: sha512-VGAESO2xIs4BUT+o2PryjoZTszWPXFu1S7BllTvtKPIiVTTK5c39JAjwe+eW+us6y3g9n3ZB8svr/VEpVShHpQ==}
 
   brace-expansion@1.1.11:
     resolution: {integrity: sha512-iCuPHDFgrHX7H2vEI/5xpz07zSHB00TpugqhmYtVmMO6518mCuRMoOYFldEBl0g187ufozdaHgWKcYFb61qGiA==}
@@ -1817,6 +1823,8 @@ snapshots:
   balanced-match@1.0.2: {}
 
   binary-extensions@2.3.0: {}
+
+  birpc@2.0.19: {}
 
   brace-expansion@1.1.11:
     dependencies:
