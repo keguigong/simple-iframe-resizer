@@ -1,10 +1,12 @@
-import './App.css';
+import '@/global.less';
 
 const App = () => {
   return (
-    <div className="content">
-      <h1>Rsbuild with React</h1>
-      <p>Start building amazing things with Rsbuild.</p>
+    <div className="flex min-h-lvh justify-center items-center flex-col">
+      <h1 className="text-6xl font-bold">Rsbuild with React</h1>
+      <p className="text-xl opacity-50">
+        Start building amazing things with Rsbuild.
+      </p>
     </div>
   );
 };
