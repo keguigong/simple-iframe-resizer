@@ -1,29 +1,23 @@
-# Rsbuild Project
+# simple-iframe-resizer
 
-## Setup
+**simple-iframe-resizer helps you to auto resize cross-domain iframe dimensions based on the content size**
 
-Install the dependencies:
+**It works as react hooks, and is only compatible with React>=16.8.0**
 
-```bash
-pnpm install
+## Installation
+
+```sh
+# npm
+npm install simple-iframe-resizer --save
+# yarn
+yarn add simple-iframe-resizer
+# pnpm
+pnpm add simple-iframe-resizer
 ```
 
-## Get Started
+### Usage
 
-Start the dev server:
+There are two hooks, `useResizeChild` and `useResizeParent`
 
-```bash
-pnpm dev
-```
-
-Build the app for production:
-
-```bash
-pnpm build
-```
-
-Preview the production build locally:
-
-```bash
-pnpm preview
-```
+- `useResizeChild`: used within iframe page.
+- `useResizeParent`: used in host page that containing a iframe element
