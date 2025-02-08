@@ -1,28 +1,15 @@
 {
   "compilerOptions": {
-    "lib": ["DOM", "ES2020"],
+    "module": "ES2015",
+    "target": "ES2018",
     "jsx": "react-jsx",
-    "target": "ES2020",
-    "noEmit": true,
-    "skipLibCheck": true,
-    "useDefineForClassFields": true,
-
-    /* modules */
-    "module": "ESNext",
-    "isolatedModules": true,
-    "resolveJsonModule": true,
-    "moduleResolution": "Bundler",
-    "allowImportingTsExtensions": true,
-
-    /* type checking */
     "strict": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-
-    /* user customization */
-    "paths": {
-      "@/*": ["./src/*"]
-    }
+    "skipLibCheck": true,
+    "isolatedModules": true,
+    "moduleResolution": "node",
+    "declaration": true,
+    "esModuleInterop": true,
+    "outDir": "dist"
   },
-  "include": ["src"]
+  "include": ["src/*"]
 }
