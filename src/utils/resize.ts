@@ -1,5 +1,4 @@
 import { useEffect, useRef, useState } from 'react';
-import { useThrottleFn } from 'ahooks';
 import { BirpcReturn } from 'birpc';
 import { createPostMessageRpcClient } from './rpc-client';
 
@@ -34,11 +33,6 @@ export const useResizeChild = <T extends Element>(
     }
   };
 
-  // Avoid `ResizeObserver loop completed with undelivered notifications` error
-  const { run: throttledCallback } = useThrottleFn(resizeObserverCallback, {
-    wait: 16.67, // Execute callback in next frame
-  });
-
   useEffect(() => {
     const methods = {
       getSize: () =>
@@ -55,7 +49,7 @@ export const useResizeChild = <T extends Element>(
     });
     rpcClientRef.current = rpcClient;
 
-    const observer = new ResizeObserver(throttledCallback);
+    const observer = new ResizeObserver(resizeObserverCallback);
 
     if (domRef.current) {
       observer.observe(domRef.current);
