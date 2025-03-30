@@ -1,6 +1,6 @@
-import { useEffect, useRef, useState } from 'react';
-import { BirpcReturn } from 'birpc';
-import { createPostMessageRpcClient } from './rpc-client';
+import type { BirpcReturn } from "birpc";
+import { useEffect, useRef, useState } from "react";
+import { createPostMessageRpcClient } from "./rpc-client";
 
 interface ParentFunctions {
   onResize: (rect: DOMRectReadOnly) => void;
@@ -18,13 +18,11 @@ type ChildRpcClient = BirpcReturn<ChildFunctions, ParentFunctions>;
 /**
  * Observes element resizing on child side
  */
-export const useResizeChild = <T extends Element>(
-  id: string, //
-): [React.RefObject<T>, ParentRpcClient | undefined] => {
+export function useResizeChild<T extends Element>(id: string): [React.RefObject<T | null>, ParentRpcClient | null] {
   const domRef = useRef<T>(null);
-  const domRectRef = useRef<DOMRectReadOnly>();
+  const domRectRef = useRef<DOMRectReadOnly>(null);
   const windowRef = useRef(window.parent);
-  const rpcClientRef = useRef<ParentRpcClient>();
+  const rpcClientRef = useRef<ParentRpcClient>(null);
 
   const resizeObserverCallback: ResizeObserverCallback = (entries) => {
     for (const entry of entries) {
@@ -45,7 +43,7 @@ export const useResizeChild = <T extends Element>(
     >(methods, {
       messageKey: id,
       windowRef,
-      targetOrigin: '*',
+      targetOrigin: "*",
     });
     rpcClientRef.current = rpcClient;
 
@@ -63,17 +61,14 @@ export const useResizeChild = <T extends Element>(
   }, []);
 
   return [domRef, rpcClientRef.current];
-};
+}
 
 /**
  * Listens resize event, used on the parent side
  */
-export const useResizeParent = (
-  id: string,
-  windowRef: React.MutableRefObject<Window | undefined>,
-): [DOMRectReadOnly | undefined, ChildRpcClient | undefined] => {
+export function useResizeParent(id: string, windowRef: React.MutableRefObject<Window | undefined>): [DOMRectReadOnly | undefined, ChildRpcClient | null] {
   const [rect, setRect] = useState<DOMRectReadOnly>();
-  const rpcClientRef = useRef<ChildRpcClient>();
+  const rpcClientRef = useRef<ChildRpcClient>(null);
 
   useEffect(() => {
     const methods: ParentFunctions = {
@@ -87,7 +82,7 @@ export const useResizeParent = (
     >(methods, {
       messageKey: id,
       windowRef,
-      targetOrigin: '*',
+      targetOrigin: "*",
     });
     rpcClientRef.current = rpcClient;
 
@@ -97,4 +92,4 @@ export const useResizeParent = (
   }, []);
 
   return [rect, rpcClientRef.current];
-};
+}
