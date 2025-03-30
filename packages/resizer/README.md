@@ -30,27 +30,27 @@ Use it in both parent and child side. `simple-iframe-resizer` will use this even
 
 ```tsx
 // Example event name
-const RESIZE_EVENT_NAME = '__simple_iframe_resizer_demo_9f9292a4';
+const RESIZE_EVENT_NAME = "__simple_iframe_resizer_demo_9f9292a4";
 ```
 
 2. On child side
 
 ```tsx
-import { useResizeChild } from 'simple-iframe-resizer';
+import { useResizeChild } from "simple-iframe-resizer";
 
-const ChildApp = () => {
+function ChildApp() {
   const [domRef] = useResizeChild(RESIZE_EVENT_NAME);
 
   return <div ref={domRef}>Hello World</div>;
-};
+}
 ```
 
 3. On parent side
 
 ```tsx
-import { useResizeParent } from 'simple-iframe-resizer';
+import { useResizeParent } from "simple-iframe-resizer";
 
-const ParentApp = () => {
+function ParentApp() {
   const iframeRef = useRef<HTMLIFrameElement>(null);
   const iframeWindowRef = useRef<Window | undefined>();
 
@@ -64,11 +64,11 @@ const ParentApp = () => {
     <iframe
       ref={iframeRef}
       src="https://www.example.com"
-      height={rect.height || '100%'}
-      width={rect.width || '100%'}
+      height={rect.height || "100%"}
+      width={rect.width || "100%"}
     />
   );
-};
+}
 ```
 
 ### Advanced Usage

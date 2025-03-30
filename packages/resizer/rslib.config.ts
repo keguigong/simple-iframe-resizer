@@ -1,16 +1,15 @@
-import { defineConfig } from '@rslib/core';
-import { pluginReact } from '@rsbuild/plugin-react';
-import { pluginLess } from '@rsbuild/plugin-less';
-import tailwindcss from 'tailwindcss';
+import { pluginLess } from "@rsbuild/plugin-less";
+import { pluginReact } from "@rsbuild/plugin-react";
+import { defineConfig } from "@rslib/core";
+import tailwindcss from "tailwindcss";
 
-const isDev = process.env.NODE_ENV === 'development';
+const isDev = process.env.NODE_ENV === "development";
 
 export default defineConfig({
   source: {
     entry: {
-      index: ['./src/index.ts'],
+      index: ["./src/index.ts"],
     },
-
     define: {
       __DEV__: isDev,
     },
@@ -19,11 +18,11 @@ export default defineConfig({
     {
       bundle: true,
       dts: true,
-      format: 'esm',
+      format: "esm",
     },
   ],
   output: {
-    target: 'web',
+    target: "web",
   },
   plugins: [
     pluginReact(), //
