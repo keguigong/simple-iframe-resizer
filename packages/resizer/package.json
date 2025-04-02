@@ -1,6 +1,6 @@
 {
   "name": "simple-iframe-resizer",
-  "version": "0.0.3",
+  "version": "0.1.0-beta.2",
   "description": "simple-iframe-resizer helps you to auto resize cross-domain iframe dimensions based on the content size",
   "author": "keguigong <keguigong@gmail.com>",
   "license": "ISC",
