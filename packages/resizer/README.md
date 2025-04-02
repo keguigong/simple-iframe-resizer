@@ -30,35 +30,35 @@ Use it in both parent and child side. `simple-iframe-resizer` will use this even
 
 ```tsx
 // Example event name
-const RESIZE_EVENT_NAME = "__simple_iframe_resizer_demo_9f9292a4";
+const RESIZE_EVENT_NAME = "__simple_iframe_resizer_demo_9f9292a4"
 ```
 
 2. On child side
 
 ```tsx
-import { useResizeChild } from "simple-iframe-resizer";
+import { useResizeChild } from "simple-iframe-resizer"
 
 function ChildApp() {
-  const [domRef] = useResizeChild(RESIZE_EVENT_NAME);
+  const [domRef] = useResizeChild(RESIZE_EVENT_NAME)
 
-  return <div ref={domRef}>Hello World</div>;
+  return <div ref={domRef}>Hello World</div>
 }
 ```
 
 3. On parent side
 
 ```tsx
-import { useResizeParent } from "simple-iframe-resizer";
+import { useResizeParent } from "simple-iframe-resizer"
 
 function ParentApp() {
-  const iframeRef = useRef<HTMLIFrameElement>(null);
-  const iframeWindowRef = useRef<Window | undefined>();
+  const iframeRef = useRef<HTMLIFrameElement>(null)
+  const iframeWindowRef = useRef<Window | undefined>()
 
   useEffect(() => {
-    iframeWindowRef.current = iframeRef.current?.contentWindow || undefined;
-  }, []);
+    iframeWindowRef.current = iframeRef.current?.contentWindow || undefined
+  }, [])
 
-  const [rect] = useResizeParent(RESIZE_EVENT_NAME, iframeWindowRef);
+  const [rect] = useResizeParent(RESIZE_EVENT_NAME, iframeWindowRef)
 
   return (
     <iframe
@@ -67,7 +67,7 @@ function ParentApp() {
       height={rect.height || "100%"}
       width={rect.width || "100%"}
     />
-  );
+  )
 }
 ```
 
@@ -76,11 +76,11 @@ function ParentApp() {
 1. Trigger `onUnmount` event and reset the iframe height
 
 ```tsx
-const [domRef, rpcClient] = useResizeChild(RESIZE_EVENT_NAME);
+const [domRef, rpcClient] = useResizeChild(RESIZE_EVENT_NAME)
 
 useEffect(() => {
-  return () => rpcClient.onUnmount();
-}, []);
+  return () => rpcClient.onUnmount()
+}, [])
 ```
 
 2. Manually get dimensions of child from parent
@@ -89,39 +89,39 @@ useEffect(() => {
 const [rect, childRpcClient] = useResizeParent(
   RESIZE_EVENT_NAME,
   iframeWindowRef,
-);
+)
 
 useEffect(() => {
   childRpcClient.getSize().then((rect) => {
-    console.log(rect);
-  });
-}, []);
+    console.log(rect)
+  })
+}, [])
 ```
 
 ### Type Definition
 
 ```ts
 interface ParentFunctions {
-  onResize: (rect: DOMRectReadOnly) => void;
-  onUnmount: () => void;
+  onResize: (rect: DOMRectReadOnly) => void
+  onUnmount: () => void
 }
 ```
 
 ```ts
 interface ChildFunctions {
-  getSize: () => DOMRectReadOnly | undefined;
+  getSize: () => DOMRectReadOnly | undefined
 }
 ```
 
 ```ts
 declare const useResizeChild: <T extends Element>(
   id: string,
-) => [React.RefObject<T>, ParentRpcClient | undefined];
+) => [React.RefObject<T>, ParentRpcClient | undefined]
 ```
 
 ```ts
 declare const useResizeParent: (
   id: string,
   windowRef: React.MutableRefObject<Window | undefined>,
-) => [DOMRectReadOnly | undefined, ChildRpcClient | undefined];
+) => [DOMRectReadOnly | undefined, ChildRpcClient | undefined]
 ```

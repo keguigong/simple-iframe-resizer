@@ -1,9 +1,9 @@
-import { pluginLess } from "@rsbuild/plugin-less";
-import { pluginReact } from "@rsbuild/plugin-react";
-import { defineConfig } from "@rslib/core";
-import tailwindcss from "tailwindcss";
+import { pluginLess } from "@rsbuild/plugin-less"
+import { pluginReact } from "@rsbuild/plugin-react"
+import { defineConfig } from "@rslib/core"
+import tailwindcss from "tailwindcss"
 
-const isDev = process.env.NODE_ENV === "development";
+const isDev = process.env.NODE_ENV === "development"
 
 export default defineConfig({
   source: {
@@ -35,4 +35,4 @@ export default defineConfig({
       },
     },
   },
-});
+})

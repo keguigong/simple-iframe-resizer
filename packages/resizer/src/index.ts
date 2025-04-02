@@ -1,1 +1,1 @@
-export { useResizeChild, useResizeParent } from "./utils/resize";
+export { useResizeChild, useResizeParent } from "./utils/resize"
