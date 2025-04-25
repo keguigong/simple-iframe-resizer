@@ -6,3 +6,6 @@
 # Dist
 node_modules
 dist/
+
+# Reports
+*.sarif
