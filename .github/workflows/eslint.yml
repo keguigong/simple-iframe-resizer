@@ -42,7 +42,7 @@ jobs:
           wait-for-processing: true
 
   build:
-    name: Run Build Test
+    name: Run build test
     runs-on: ubuntu-latest
     permissions:
       contents: read
