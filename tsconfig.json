@@ -1,15 +1,16 @@
 {
   "compilerOptions": {
-    "target": "ES2018",
+    "target": "esnext",
     "jsx": "react-jsx",
-    "module": "ES2015",
-    "moduleResolution": "node",
+    "module": "esnext",
+    "moduleResolution": "bundler",
     "strict": true,
     "declaration": true,
     "outDir": "dist",
+    "sourceMap": true,
     "esModuleInterop": true,
     "isolatedModules": true,
     "skipLibCheck": true
   },
-  "include": ["./src/*"]
+  "include": ["./src/*.ts"]
 }

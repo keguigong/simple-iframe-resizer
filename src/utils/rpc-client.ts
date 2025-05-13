@@ -6,10 +6,13 @@ export interface RpcMessage<T = unknown> {
   payload: T
 }
 
-export function isRpcMessage<T = unknown>(event: MessageEvent<unknown>, options: {
-  messageKey: string
-  targetOrigin: string
-}) {
+export function isRpcMessage<T = unknown>(
+  event: MessageEvent<unknown>,
+  options: {
+    messageKey: string
+    targetOrigin: string
+  },
+) {
   const data = event.data as Partial<RpcMessage>
   if (options.targetOrigin !== "*" && event.origin !== options.targetOrigin)
     return false
@@ -25,11 +28,14 @@ export function isRpcMessage<T = unknown>(event: MessageEvent<unknown>, options:
 export function createPostMessageRpcClient<
   RemoteFunctions extends object = Record<string, unknown>,
   LocalFunctions extends object = Record<string, unknown>,
->(localFunctions: LocalFunctions, options: Partial<BirpcOptions<RemoteFunctions>> & {
-  windowRef: React.RefObject<Window | undefined>
-  messageKey: string
-  targetOrigin: string
-}) {
+>(
+  localFunctions: LocalFunctions,
+  options: Partial<BirpcOptions<RemoteFunctions>> & {
+    windowRef: React.RefObject<Window | undefined>
+    messageKey: string
+    targetOrigin: string
+  },
+) {
   const ac = new AbortController()
   const { windowRef, messageKey, targetOrigin, ...birpcOptions } = options
 
