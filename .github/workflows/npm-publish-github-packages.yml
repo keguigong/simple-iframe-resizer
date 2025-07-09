@@ -41,7 +41,7 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
-          registry-url: https://npm.pkg.github.com/
+          registry-url: https://npm.pkg.github.com
       - name: Install Dependencies
         run: |
           corepack enable pnpm
@@ -74,8 +74,8 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: dist-folder
-          path: .
-      - run: pnpm publish -r --no-git-checks --access=public
+          path: packages
+      - run: pnpm -r publish --no-git-checks --access=public
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
           NPM_CONFIG_PROVENANCE: true
