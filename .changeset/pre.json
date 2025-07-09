@@ -4,5 +4,8 @@
   "initialVersions": {
     "simple-iframe-resizer": "0.1.0-beta.1"
   },
-  "changesets": ["great-humans-change"]
+  "changesets": [
+    "full-mugs-wonder",
+    "great-humans-change"
+  ]
 }
