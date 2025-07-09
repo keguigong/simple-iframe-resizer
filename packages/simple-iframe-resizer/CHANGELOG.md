@@ -1,5 +1,11 @@
 # simple-iframe-resizer
 
+## 0.1.0-beta.3
+
+### Patch Changes
+
+- chore: update repository links
+
 ## 0.1.0-beta.2
 
 ### Patch Changes
