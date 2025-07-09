@@ -1,6 +1,6 @@
 {
   "name": "simple-iframe-resizer",
-  "version": "0.1.0-beta.3",
+  "version": "0.1.0-beta.4",
   "packageManager": "pnpm@10.10.0",
   "description": "",
   "author": "keguigong <keguigong@gmail.com>",
@@ -31,7 +31,7 @@
     "dist"
   ],
   "scripts": {
-    "build": "tsc",
+    "build": "tsc -p tsconfig.build.json",
     "lint": "eslint",
     "lint:fix": "eslint --fix"
   },
