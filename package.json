@@ -1,6 +1,7 @@
 {
-  "name": "@keguigong/packages",
+  "name": "@keguigong/simple-iframe-resizer-monorepo",
   "version": "0.0.0",
+  "private": true,
   "packageManager": "pnpm@10.10.0",
   "description": "",
   "author": "keguigong <keguigong@gmail.com>",
