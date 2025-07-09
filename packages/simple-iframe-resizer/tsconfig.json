@@ -1,10 +1,10 @@
 {
   "compilerOptions": {
-    "target": "esnext",
+    "target": "es2022",
     "jsx": "react-jsx",
     "baseUrl": ".",
-    "module": "nodenext",
-    "moduleResolution": "nodenext",
+    "module": "esnext",
+    "moduleResolution": "bundler",
     "paths": {
       "@/*": ["./src/*"]
     },
@@ -12,7 +12,6 @@
     "strict": true,
     "declaration": true,
     "outDir": "dist",
-    "sourceMap": true,
     "esModuleInterop": true,
     "isolatedModules": true,
     "skipLibCheck": true

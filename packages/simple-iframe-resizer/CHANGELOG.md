@@ -1,5 +1,29 @@
 # simple-iframe-resizer
 
+## 0.1.0-beta.8
+
+### Patch Changes
+
+- chore: bump version
+
+## 0.1.0-beta.7
+
+### Patch Changes
+
+- chore: bump version
+
+## 0.1.0-beta.6
+
+### Patch Changes
+
+- chore: bump version
+
+## 0.1.0-beta.5
+
+### Patch Changes
+
+- chore: bump version
+
 ## 0.1.0-beta.4
 
 ### Patch Changes
