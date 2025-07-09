@@ -1,5 +1,11 @@
 # simple-iframe-resizer
 
+## 0.1.0-beta.4
+
+### Patch Changes
+
+- chore: add tsconfig.build.json
+
 ## 0.1.0-beta.3
 
 ### Patch Changes
