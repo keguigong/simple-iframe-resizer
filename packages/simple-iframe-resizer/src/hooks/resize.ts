@@ -1,6 +1,6 @@
 import type { BirpcReturn } from "birpc"
+import { createPostMessageRpcClient } from "@/utils/rpc-client"
 import { useEffect, useRef, useState } from "react"
-import { createPostMessageRpcClient } from "./rpc-client"
 
 interface ParentFunctions {
   onResize: (rect: DOMRectReadOnly) => void
@@ -18,7 +18,9 @@ type ChildRpcClient = BirpcReturn<ChildFunctions, ParentFunctions>
 /**
  * Observes element resizing on child side
  */
-export function useResizeChild<T extends Element>(id: string): [React.RefObject<T | null>, ParentRpcClient | null] {
+export function useResizeChild<T extends Element>(
+  id: string,
+): [React.RefObject<T | null>, ParentRpcClient | null] {
   const domRef = useRef<T>(null)
   const domRectRef = useRef<DOMRectReadOnly>(null)
   const windowRef = useRef(window.parent)
@@ -66,7 +68,10 @@ export function useResizeChild<T extends Element>(id: string): [React.RefObject<
 /**
  * Listens resize event, used on the parent side
  */
-export function useResizeParent(id: string, windowRef: React.MutableRefObject<Window | undefined>): [DOMRectReadOnly | undefined, ChildRpcClient | null] {
+export function useResizeParent(
+  id: string,
+  windowRef: React.MutableRefObject<Window | undefined>,
+): [DOMRectReadOnly | undefined, ChildRpcClient | null] {
   const [rect, setRect] = useState<DOMRectReadOnly>()
   const rpcClientRef = useRef<ChildRpcClient>(null)
 

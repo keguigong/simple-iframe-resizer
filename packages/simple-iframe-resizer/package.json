@@ -1,0 +1,56 @@
+{
+  "name": "simple-iframe-resizer",
+  "version": "0.1.0-beta.2",
+  "packageManager": "pnpm@10.10.0",
+  "description": "",
+  "author": "keguigong <keguigong@gmail.com>",
+  "license": "MIT",
+  "homepage": "https://github.com/keguigong/simple-iframe-resizer#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/keguigong/simple-iframe-resizer.git"
+  },
+  "exports": {
+    ".": {
+      "types": "./src/index.ts",
+      "default": "./src/index.ts"
+    }
+  },
+  "publishConfig": {
+    "main": "./dist/index.mjs",
+    "exports": {
+      ".": {
+        "types": "./dist/index.d.ts",
+        "import": "./dist/index.mjs",
+        "default": "./dist/index.mjs"
+      }
+    }
+  },
+  "files": [
+    "CHANGELOG.md",
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "lint": "eslint",
+    "lint:fix": "eslint --fix"
+  },
+  "peerDependencies": {
+    "react": ">=16.8.0",
+    "react-dom": ">=16.8.0"
+  },
+  "dependencies": {
+    "birpc": "^2.3.0"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.3.0",
+    "@testing-library/react-hooks": "^8.0.1",
+    "@types/react": "^19.0.12",
+    "@types/react-dom": "^19.0.4",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "typescript": "^5.8.2",
+    "vitest": "^3.2.4"
+  }
+}

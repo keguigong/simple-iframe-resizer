@@ -62,4 +62,4 @@ jobs:
           pnpm install
 
       - name: Build Test
-        run: pnpm build
+        run: pnpm -r build

@@ -2,8 +2,13 @@
   "compilerOptions": {
     "target": "esnext",
     "jsx": "react-jsx",
-    "module": "esnext",
-    "moduleResolution": "bundler",
+    "baseUrl": ".",
+    "module": "nodenext",
+    "moduleResolution": "nodenext",
+    "paths": {
+      "@/*": ["./src/*"]
+    },
+    "types": ["vitest/globals", "@testing-library/jest-dom"],
     "strict": true,
     "declaration": true,
     "outDir": "dist",
@@ -12,5 +17,5 @@
     "isolatedModules": true,
     "skipLibCheck": true
   },
-  "include": ["./src/*.ts"]
+  "include": ["./src/**/*.ts"]
 }
