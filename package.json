@@ -1,69 +1,22 @@
 {
-  "name": "simple-iframe-resizer",
-  "version": "0.1.0-beta.2",
+  "name": "@keguigong/packages",
+  "version": "0.0.0",
   "packageManager": "pnpm@10.10.0",
-  "description": "simple-iframe-resizer helps you to auto resize cross-domain iframe dimensions based on the content size",
+  "description": "",
   "author": "keguigong <keguigong@gmail.com>",
-  "license": "ISC",
-  "homepage": "https://github.com/uglyteens/simple-iframe-resizer#readme",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/uglyteens/simple-iframe-resizer.git"
-  },
-  "bugs": {
-    "url": "https://github.com/uglyteens/simple-iframe-resizer/issues"
-  },
-  "exports": {
-    ".": {
-      "types": "./src/index.ts",
-      "default": "./src/index.ts"
-    },
-    "./*": {
-      "types": "./src/*.ts",
-      "default": "./src/*.ts"
-    }
-  },
-  "main": "./src/index.ts",
-  "publishConfig": {
-    "main": "./dist/index.mjs",
-    "exports": {
-      ".": {
-        "types": "./dist/index.d.ts",
-        "import": "./dist/index.mjs",
-        "default": "./dist/index.mjs"
-      }
-    }
-  },
-  "files": [
-    "dist"
-  ],
   "scripts": {
-    "build": "tsc",
     "lint": "eslint",
     "lint:fix": "eslint --fix",
     "prepare": "husky"
-  },
-  "peerDependencies": {
-    "react": ">=16.8.0",
-    "react-dom": ">=16.8.0"
-  },
-  "dependencies": {
-    "birpc": "^2.3.0"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^4.11.0",
     "@changesets/cli": "^2.28.1",
     "@microsoft/eslint-formatter-sarif": "^3.1.0",
-    "@rsbuild/core": "^1.3.0",
-    "@rsbuild/plugin-less": "^1.2.1",
-    "@rsbuild/plugin-react": "^1.1.1",
-    "@types/react": "^19.0.12",
-    "@types/react-dom": "^19.0.4",
     "eslint": "^9.23.0",
     "husky": "^9.1.7",
     "lint-staged": "^15.5.0",
     "prettier": "^3.5.3",
-    "tailwindcss": "^4.0.17",
     "typescript": "^5.8.2"
   },
   "lint-staged": {
