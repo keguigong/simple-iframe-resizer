@@ -1,5 +1,11 @@
 # simple-iframe-resizer
 
+## 0.1.0-beta.9
+
+### Patch Changes
+
+- chore: use swc for compilation
+
 ## 0.1.0-beta.8
 
 ### Patch Changes
