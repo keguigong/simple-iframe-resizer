@@ -1,16 +1,18 @@
 {
   "compilerOptions": {
-    "target": "es2022",
+    "target": "esnext",
     "jsx": "react-jsx",
     "baseUrl": ".",
-    "module": "esnext",
-    "moduleResolution": "bundler",
+    "module": "nodenext",
+    "moduleResolution": "nodenext",
     "paths": {
       "@/*": ["./src/*"]
     },
     "types": ["vitest/globals", "@testing-library/jest-dom"],
     "strict": true,
     "declaration": true,
+    "declarationDir": "dist/types",
+    "emitDeclarationOnly": true,
     "outDir": "dist",
     "esModuleInterop": true,
     "isolatedModules": true,
