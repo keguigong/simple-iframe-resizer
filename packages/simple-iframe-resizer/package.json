@@ -1,6 +1,6 @@
 {
   "name": "simple-iframe-resizer",
-  "version": "0.1.0-beta.10",
+  "version": "0.1.0",
   "packageManager": "pnpm@10.10.0",
   "description": "",
   "author": "keguigong <keguigong@gmail.com>",
