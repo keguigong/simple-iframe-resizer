@@ -10,7 +10,7 @@ on:
 
 jobs:
   build:
-    name: Build
+    name: Publish to npm
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
