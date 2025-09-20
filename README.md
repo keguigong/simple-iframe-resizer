@@ -1,3 +1,1 @@
-### simple-iframe-resizer-monorepo
-
-Monorepo with pnpm.
+./packages/simple-iframe-resizer/README.md

@@ -1,6 +1,7 @@
 name: ESLint
 
 on:
+  workflow_dispatch:
   push:
   pull_request:
     # The branches below must be a subset of the branches above
@@ -8,32 +9,30 @@ on:
 
 jobs:
   eslint:
-    name: Run eslint scanning
+    name: Run ESLint
     runs-on: ubuntu-latest
     permissions:
       contents: read
       security-events: write
       actions: read # only required for a private repository by github/codeql-action/upload-sarif to get the Action run status
     steps:
-      - name: Checkout code
+      - name: Checkout
         uses: actions/checkout@v4
-
-      - uses: actions/setup-node@v4
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
         with:
-          node-version: lts/jod
-
+          node-version-file: .node-version
+          cache: pnpm
       - name: Install Dependencies
-        run: |
-          corepack enable pnpm
-          pnpm install
-
+        run: pnpm i
       - name: Run ESLint
         env:
           SARIF_ESLINT_IGNORE_SUPPRESSED: "true"
         run: pnpm lint
           --format @microsoft/eslint-formatter-sarif
           --output-file eslint-results.sarif
-
       - name: Upload analysis results to GitHub
         uses: github/codeql-action/upload-sarif@v3
         if: always()
@@ -42,24 +41,21 @@ jobs:
           wait-for-processing: true
 
   build:
-    name: Run build test
+    name: Run Build
     runs-on: ubuntu-latest
     permissions:
       contents: read
-      security-events: write
-      actions: read # only required for a private repository by github/codeql-action/upload-sarif to get the Action run status
     steps:
-      - name: Checkout code
+      - name: Checkout
         uses: actions/checkout@v4
-
-      - uses: actions/setup-node@v4
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
         with:
-          node-version: lts/jod
-
+          node-version-file: .node-version
+          cache: pnpm
       - name: Install Dependencies
-        run: |
-          corepack enable pnpm
-          pnpm install
-
-      - name: Build Test
+        run: pnpm i
+      - name: Build
         run: pnpm -r build

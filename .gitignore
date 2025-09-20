@@ -5,7 +5,8 @@
 
 # Dist
 node_modules
-dist/
+dist
 
 # Reports
 *.sarif
+.npmrc
