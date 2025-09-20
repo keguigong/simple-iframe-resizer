@@ -2,27 +2,29 @@
   "name": "@keguigong/simple-iframe-resizer-monorepo",
   "version": "0.0.0",
   "private": true,
-  "packageManager": "pnpm@10.10.0",
+  "packageManager": "pnpm@10.17.0",
   "description": "",
   "author": "keguigong <keguigong@gmail.com>",
   "scripts": {
     "lint": "eslint",
-    "lint:fix": "eslint --fix",
-    "prepare": "husky"
+    "lint:fix": "eslint --fix"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^4.11.0",
     "@changesets/cli": "^2.28.1",
     "@microsoft/eslint-formatter-sarif": "^3.1.0",
     "eslint": "^9.23.0",
-    "husky": "^9.1.7",
     "lint-staged": "^15.5.0",
     "prettier": "^3.5.3",
     "typescript": "^5.8.2"
   },
+  "simple-git-hooks": {
+    "pre-commit": "pnpm lint-staged"
+  },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
-      "eslint"
+      "prettier --write",
+      "eslint --fix --cache --quiet"
     ]
   }
 }
